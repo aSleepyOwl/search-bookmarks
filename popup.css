@@ -1,0 +1,27 @@
+﻿body {
+    width: 300px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#results {
+    list-style: none;
+    padding: 0;
+}
+
+#results li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#results li a {
+    text-decoration: none;
+    color: #000;
+}
