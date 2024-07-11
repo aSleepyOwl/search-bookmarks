@@ -2,7 +2,6 @@
     const searchInput = document.getElementById('searchInput');
     const results = document.getElementById('results');
 
-    // 聚焦搜索输入框
     searchInput.focus();
 
     searchInput.addEventListener('input', function () {
@@ -15,12 +14,20 @@
                     const li = document.createElement('li');
                     const a = document.createElement('a');
                     a.href = bookmark.url;
-                    a.textContent = bookmark.title;
                     a.target = '_blank';
+                    a.innerHTML = highlightMatch(bookmark.title, query);
                     li.appendChild(a);
                     results.appendChild(li);
                 });
             });
         }
     });
+
+    function highlightMatch(text, query) {
+        const index = text.toLowerCase().indexOf(query);
+        if (index >= 0) {
+            return text.slice(0, index) + '<span class="highlight">' + text.slice(index, index + query.length) + '</span>' + text.slice(index + query.length);
+        }
+        return text;
+    }
 });
